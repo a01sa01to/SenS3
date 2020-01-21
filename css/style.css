@@ -89,7 +89,8 @@ button:hover {
 }
 
 .container.start div.gridCentering h1 {
-  font-size: 5.5rem;
+  font-size: 25vw;
+  line-height: 15vw;
 }
 
 .container.start div.gridCentering div.btnContainer {
