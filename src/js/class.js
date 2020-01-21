@@ -1,22 +1,4 @@
-const sleep = async t => new Promise(r=>setTimeout(r,t));
-const waitUntil = async (...e)=>{
-	if(e.length === 1){
-		if(document.querySelector(e[0])){
-			return;
-		}
-		await sleep(300);
-		await waitUntil(e);
-		return;
-	}
-	e.forEach(async _=>{
-		await waitUntil(_);
-	});
-}
-
-const π = Math.PI;
-const selector = "canvas";
-const bgColor = "#222";
-
+import {π, selector, bgColor} from "./variables";
 
 class Canvas{
 	constructor(){}
@@ -115,13 +97,13 @@ class Canvas{
 			baseline: "top",
 			dir: "ltr"
 		}
-	
+
 		for (const key in argFontDef) {
 			if(!font.hasOwnProperty(key)) {
 				font[key] = argFontDef[key];
 			}
 		}
-	
+
 		this.context().font = font.style;
 		this.context().textAlign = font.align;
 		this.context().textBaseline = font.baseline;
@@ -208,14 +190,4 @@ class Block extends Canvas{
 	}
 }
 
-window.addEventListener("load",()=>{
-	const canv = new Canvas();
-
-	canv.color(bgColor)
-		.rect(0,0,canv.size().width, canv.size().height)  // 全体を#222で塗りつぶし
-		.color("#555")
-		.rect(0,canv.p2x(85,"y"),canv.size().width,canv.p2x(15,"y"))  // 下の部分
-		.split("x",5,canv.p2x(85,"y"),canv.p2x(15,"y"));  // 下部分を3分割
-
-	window.canv = canv;
-});
+export {Canvas, Block}
