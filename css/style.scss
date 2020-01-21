@@ -1,0 +1,29 @@
+*{ box-sizing: border-box; }
+html, body{
+	padding: 0px;
+	margin: 0px;
+	// overflow: hidden;
+}
+canvas{
+	width: 100%;
+	height: 100%;
+}
+
+.container{
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	&.showing{
+		display: block;
+	}
+	&.start{
+		h1{
+			font-size: 20vw;
+		}
+	}
+}
+
+h1, h2, h3, h4, h5, h6{
+	text-align: center;
+	margin: 0;
+}
