@@ -208,9 +208,7 @@ class Block extends Canvas{
 	}
 }
 
-
-(async ()=>{
-	await waitUntil("canvas");
+window.addEventListener("load",()=>{
 	const canv = new Canvas();
 
 	canv.color(bgColor)
@@ -220,4 +218,4 @@ class Block extends Canvas{
 		.split("x",3,canv.p2x(80,"y"),canv.p2x(20,"y"));  // 下部分を3分割
 
 	window.canv = canv;
-})();
+});
