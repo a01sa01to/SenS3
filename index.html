@@ -5,28 +5,48 @@
 	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>SenS3</title>
-	<script src="./js/script.js"></script>
+	<script src="./bundle.js"></script>
 	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-	<div class="container start">
-
+	<div class="container start showing">
+		<h1>SenS3</h1>
+		<button id="play">Play</button>
+		<button id="news">News</button>
+		<button id="links">Links</button>
 	</div>
 	<div class="container select">
-
+		<h2>曲を選択してください。</h2>
+		<div class="song">
+			<p class="title">Test</p>
+			<p class="composer">Asa</p>
+			<p class="ratio">100.0%</p>
+		</div>
+		<div class="playContainer">
+			<button id="playSong">Play</button>
+		</div>
 	</div>
 	<div class="container game">
+		<div class="loader">
+			<p>Loading</p>
+		</div>
 		<canvas id="game" width="720" height="790">
 			Canvasに対応していないようです。<br>
 			SenS3を遊ぶためには、ほかの端末からアクセスしてください。
-			1レーン20px 36
 		</canvas>
 	</div>
 	<div class="container news">
-
+		<h2>News</h2>
+		<div class="news">
+			<p class="title">Create REPO</p>
+			<p class="date">2020.01.21</p>
+			<p class="body">hogehogehogehoge<br>hogehogehogehoge<br>hogehogehoge</p>
+		</div>
 	</div>
 	<div class="container links">
-
+		<h2>Link</h2>
+		<p class="link"><a href="">Google</a></p>
+		<p class="link"><a href="">Yahoo</a></p>
 	</div>
 </body>
 </html>

@@ -1,0 +1,18 @@
+{
+  "name": "sens3",
+  "version": "1.0.0",
+  "description": "rhythm game",
+  "main": "src/js/main.js",
+  "dependencies": {
+    "webpack": "^4.41.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "Asa",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack-cli": "^3.3.10"
+  }
+}
