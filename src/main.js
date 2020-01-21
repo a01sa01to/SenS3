@@ -1,5 +1,6 @@
 import {sleep, waitUntil} from "./function";
-import {Canvas, Block} from "./class"
+import {bgColor} from "./variables";
+import {Canvas, Block} from "./class";
 
 
 window.addEventListener("load",()=>{
