@@ -7,19 +7,19 @@ class Canvas{
 	 * @description Canvas要素を取得
 	 * @returns {HTMLElement} Canvas
 	 */
-	get = ()=>document.querySelector(selector);
+	get(){ return document.querySelector(selector) };
 
 	/**
 	 * @description Contextを取得
 	 * @returns {CanvasRenderingContext2D} Context
 	 */
-	context = function(){ return this.get().getContext('2d'); };
+	context(){ return this.get().getContext('2d'); };
 
 	/**
 	 * @description サイズを取得
 	 * @returns {{width: Number, height: Number}} サイズ
 	 */
-	size = function(){ return {width: this.get().width, height: this.get().height}; };
+	size(){ return {width: this.get().width, height: this.get().height}; };
 
 	/**
 	 * @description パーセントをpxに変換
@@ -27,7 +27,7 @@ class Canvas{
 	 * @param {String} dir "x" or "y"
 	 * @returns {Number} px
 	 */
-	p2x = function(per, dir){
+	p2x(per, dir){
 		switch(dir){
 			case "x":
 				return this.size().width / 100 * per;
@@ -42,7 +42,7 @@ class Canvas{
 	 * @description 色を変える
 	 * @param {String} c カラーコード
 	 */
-	color = function(c){ this.context().fillStyle=c; this.context().strokeStyle=c; return this; };
+	color(c){ this.context().fillStyle=c; this.context().strokeStyle=c; return this; };
 
 	/**
 	 * @description 長方形を描画
@@ -52,7 +52,7 @@ class Canvas{
 	 * @param {Number} dy 高さ
 	 * @param {Boolean} [fill = true] 埋めるか
 	 */
-	rect = function(x,y,dx,dy, fill=true){
+	rect(x,y,dx,dy, fill=true){
 		this.context().beginPath();1
 		this.context().moveTo(0,0);
 		this.context().moveTo(x,y);
@@ -71,7 +71,7 @@ class Canvas{
 	 * @param {Number} dx 幅
 	 * @param {Number} dy 高さ
 	 */
-	clear = function(x,y,dx,dy){
+	clear(x,y,dx,dy){
 		const nowColor = this.context().fillStyle;
 		this.color(bgColor).rect(x,y,dx,dy).color(nowColor);
 		return this;
@@ -80,7 +80,7 @@ class Canvas{
 	/**
 	 * @description Canvas内をすべて消す
 	 */
-	clearAll = function(){ this.clear(0,0, this.size().width, this.size().height); return this; };
+	clearAll(){ this.clear(0,0, this.size().width, this.size().height); return this; };
 
 	/**
 	 * @description テキストを描画
@@ -90,7 +90,7 @@ class Canvas{
 	 * @param {{style: String, align: String, baseline: String, dir:String}} font フォントの書式設定
 	 * @param {Boolean} [fill = true] 埋めるか
 	 */
-	text = function(x,y,txt,font={},fill=true){
+	text(x,y,txt,font={},fill=true){
 		const argFontDef = {
 			style: "10px sans-selif",
 			align: "left",
@@ -119,7 +119,7 @@ class Canvas{
 	 * @param {Number} r 半径
 	 * @param {Boolean} [fill = true] 埋めるか
 	 */
-	circle = function(x,y,r,fill=true){
+	circle(x,y,r,fill=true){
 		this.context().arc(x,y,r,0, 2*π);
 		fill?this.context().fill():this.context().stroke();
 		return this;
@@ -133,7 +133,7 @@ class Canvas{
 	 * @param {Number} dy 高さ
 	 * @param {String} url 画像のURL
 	 */
-	image = function(x,y,dx,dy,url){
+	image(x,y,dx,dy,url){
 		const img = document.createElement("img");
 		img.src = url;
 		img.onload = function(){
@@ -150,7 +150,7 @@ class Canvas{
 	 * @param {Number} length 線の長さ
 	 * @param {String} [color = "#bbb"] 線の色
 	 */
-	split = function(dir,n,where,length,color="#bbb"){
+	split(dir,n,where,length,color="#bbb"){
 		const s = this.p2x(100/n,dir);
 		const nowColor = this.context().fillStyle;
 		this.color(color);
@@ -183,7 +183,7 @@ class Block extends Canvas{
 		this.color("#f00").rect(this.x, this.y, this.dx, this.dy);
 		return this;
 	}
-	move = function(x,y){
+	move(x,y){
 		this.clear(this.x,this.y,this.dx,this.dy);
 		this.rect(this.x+x, this.y+y, this.dx,this.dy);
 		return this;
