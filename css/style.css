@@ -1,11 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Kosugi+Maru|M+PLUS+Rounded+1c|Noto+Sans+JP|Poppins|Sawarabi+Mincho|Bungee+Hairline&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Poppins", 'Kosugi Maru', 'M PLUS Rounded 1c', "Noto Sans Japanese", sans-serif;
 }
 
 html, body {
   padding: 0px;
   margin: 0px;
+  font-size: 16px;
+  position: relative;
 }
 
 canvas {
@@ -13,7 +17,21 @@ canvas {
   height: 100%;
 }
 
+button {
+  background: #fff;
+  border: none;
+  outline: none;
+}
+
+button:hover {
+  -webkit-box-shadow: 0px 5px 5px -5px #888;
+          box-shadow: 0px 5px 5px -5px #888;
+}
+
 .container {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: none;
   width: 100vw;
   height: 100vh;
@@ -23,12 +41,82 @@ canvas {
   display: block;
 }
 
-.container.start h1 {
-  font-size: 20vw;
+.container:not(.start) {
+  padding-top: 50px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.container header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 48px;
+  font-size: 28px;
+}
+
+.container header button {
+  float: left;
+  height: 48px;
+  font-size: 18px;
+}
+
+.container header p.page {
+  display: block;
+  margin: 0 auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  line-height: 48px;
+  font-weight: 700;
+}
+
+.container.start {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: ". . ." ". a ." ". . .";
+  -ms-grid-columns: 1fr max-content 1fr;
+      grid-template-columns: 1fr -webkit-max-content 1fr;
+      grid-template-columns: 1fr max-content 1fr;
+  -ms-grid-rows: 1fr max-content 1fr;
+      grid-template-rows: 1fr -webkit-max-content 1fr;
+      grid-template-rows: 1fr max-content 1fr;
+}
+
+.container.start div.gridCentering {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: a;
+}
+
+.container.start div.gridCentering h1 {
+  font-size: 5.5rem;
+}
+
+.container.start div.gridCentering div.btnContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.container.start div.gridCentering div.btnContainer button {
+  font-size: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6, p.page {
   text-align: center;
   margin: 0;
+  line-height: 64px;
+  font-family: 'Bungee Hairline', cursive, "Poppins", 'Kosugi Maru', 'M PLUS Rounded 1c', "Noto Sans Japanese", sans-serif;
 }
 /*# sourceMappingURL=style.css.map */

@@ -10,13 +10,21 @@
 </head>
 <body>
 	<div class="container start showing">
-		<h1>SenS3</h1>
-		<button id="play">Play</button>
-		<button id="news">News</button>
-		<button id="links">Links</button>
+		<div class="gridCentering">
+			<h1>SenS3</h1>
+			<h2>Rhythm Game</h2>
+			<div class="btnContainer">
+				<button id="play">Play</button>
+				<button id="news">News</button>
+				<button id="links">Links</button>
+			</div>
+		</div>
 	</div>
 	<div class="container select">
-		<h2>曲を選択してください。</h2>
+		<header>
+			<button class="back" data-from="select" data-to="start"> &Lt; Back</button>
+			<p class="page">Song Select</p>
+		</header>
 		<div class="song">
 			<p class="title">Test</p>
 			<p class="composer">Asa</p>
@@ -27,6 +35,9 @@
 		</div>
 	</div>
 	<div class="container game">
+		<header>
+			<button class="back" data-from="game" data-to="select"> &Lt; Back</button>
+		</header>
 		<div class="loader">
 			<p>Loading</p>
 		</div>
@@ -36,7 +47,10 @@
 		</canvas>
 	</div>
 	<div class="container news">
-		<h2>News</h2>
+		<header>
+			<button class="back" data-from="news" data-to="start"> &Lt; Back</button>
+			<p class="page">News</p>
+		</header>
 		<div class="news">
 			<p class="title">Create REPO</p>
 			<p class="date">2020.01.21</p>
@@ -44,7 +58,10 @@
 		</div>
 	</div>
 	<div class="container links">
-		<h2>Link</h2>
+		<header>
+			<button class="back" data-from="links" data-to="start"> &Lt; Back</button>
+			<p class="page">Links</p>
+		</header>
 		<p class="link"><a href="">Google</a></p>
 		<p class="link"><a href="">Yahoo</a></p>
 	</div>
