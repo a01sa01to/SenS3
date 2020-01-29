@@ -9,6 +9,9 @@ html, body {
   padding: 0px;
   margin: 0px;
   font-size: 16px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   position: relative;
 }
 
@@ -35,6 +38,7 @@ button:hover {
   display: none;
   width: 100vw;
   height: 100vh;
+  padding: 8px;
 }
 
 .container.showing {
@@ -89,7 +93,7 @@ button:hover {
 }
 
 .container.start div.gridCentering h1 {
-  font-size: 25vw;
+  font-size: 20vw;
   line-height: 15vw;
 }
 
@@ -114,10 +118,103 @@ button:hover {
   font-size: 2rem;
 }
 
+.container.select div.song {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "song . . . ." "song . . . ratio" "song . comp . ratio" "song. . . ratio" "song . . . .";
+  -ms-grid-columns: auto 12px auto 1fr auto;
+      grid-template-columns: auto 12px auto 1fr auto;
+  gap: 0px;
+  position: relative;
+  padding: 0px 16px;
+}
+
+.container.select div.song:hover {
+  -webkit-box-shadow: 0px 5px 5px -5px #888;
+          box-shadow: 0px 5px 5px -5px #888;
+}
+
+.container.select div.song p.title {
+  font-size: 2.5rem;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: song;
+}
+
+.container.select div.song p.composer {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: comp;
+}
+
+.container.select div.song p.composer::before {
+  content: " by ";
+}
+
+.container.select div.song p.note {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: note;
+  display: none;
+}
+
+.container.select div.song p.note::before {
+  content: "Note made by ";
+}
+
+.container.select div.song p.intro {
+  display: none;
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: intro;
+}
+
+.container.select div.song p.ratio {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: ratio;
+  font-size: 1.5rem;
+}
+
+.container.select div.song p.ratio::after {
+  content: "%";
+}
+
+.container.select div.song button#playSong {
+  -ms-grid-row: 6;
+  -ms-grid-column: 1;
+  grid-area: play;
+  display: none;
+}
+
+.container.select div.song.show {
+      grid-template-areas: "song" "comp" "note" "intro" "ratio" "play";
+  gap: 8px;
+}
+
+.container.select div.song.show p.composer::before {
+  content: "Composed by ";
+}
+
+.container.select div.song.show p.ratio {
+  font-size: 1em;
+}
+
+.container.select div.song.show p.ratio::before {
+  content: "Clear rate: ";
+}
+
 h1, h2, h3, h4, h5, h6, p.page {
   text-align: center;
   margin: 0;
   line-height: 64px;
   font-family: 'Bungee Hairline', cursive, "Poppins", 'Kosugi Maru', 'M PLUS Rounded 1c', "Noto Sans Japanese", sans-serif;
+}
+
+p {
+  margin: 0px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 /*# sourceMappingURL=style.css.map */
