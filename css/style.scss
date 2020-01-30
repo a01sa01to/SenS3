@@ -85,6 +85,20 @@ button{
 		}
 	}
 	&.select{
+		div#playbtnContainer{
+			// display: block;
+			width: 100%;
+			display: flex;
+			align-content: space-around;
+			justify-content: space-around;
+			flex-wrap: wrap;
+			flex-direction: row;
+			display: none;
+			button{
+				font-size: 1.2rem;
+			}
+		}
+
 		div.song{
 			display: grid;
 			grid-template-areas: "song . . . ." "song . . . ratio" "song . comp . ratio" "song. . . ratio" "song . . . .";
@@ -92,12 +106,12 @@ button{
 			gap: 0px;
 			position: relative;
 			padding: 0px 16px;
-			&:hover{
-				box-shadow: 0px 5px 5px -5px #888;
-			}
+			box-shadow: inset 0px 0px 5px 0px #888;
+			margin-bottom: 16px;
 			p.title{
 				font-size: 2.5rem;
 				grid-area: song;
+				font-family: 'M PLUS Rounded 1c', "Noto Sans Japanese", sans-serif;
 			}
 			p.composer{
 				grid-area: comp;
@@ -123,14 +137,12 @@ button{
 					content: "%";
 				}
 			}
-			button#playSong{
-				grid-area: play;
-				display: none;
-			}
 			&.show{
-				grid-template-areas: "song" "comp" "note" "intro" "ratio" "play";
+				grid-template-areas: "song" "comp" "note" "intro" "ratio" "btn";
 				gap: 8px;
-
+				grid-template-columns: 100%;
+				box-shadow: 0px 0px 20px -5px #888;
+				p.note, p.intro{ display: block; }
 				p.composer{
 					&::before{
 						content: "Composed by ";
@@ -141,6 +153,9 @@ button{
 						content: "Clear rate: ";
 					}
 					font-size: 1em;
+				}
+				#playbtnContainer{
+					grid-area: btn;
 				}
 			}
 		}

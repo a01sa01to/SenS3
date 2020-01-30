@@ -118,6 +118,28 @@ button:hover {
   font-size: 2rem;
 }
 
+.container.select div#playbtnContainer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: none;
+}
+
+.container.select div#playbtnContainer button {
+  font-size: 1.2rem;
+}
+
 .container.select div.song {
   display: -ms-grid;
   display: grid;
@@ -127,11 +149,9 @@ button:hover {
   gap: 0px;
   position: relative;
   padding: 0px 16px;
-}
-
-.container.select div.song:hover {
-  -webkit-box-shadow: 0px 5px 5px -5px #888;
-          box-shadow: 0px 5px 5px -5px #888;
+  -webkit-box-shadow: inset 0px 0px 5px 0px #888;
+          box-shadow: inset 0px 0px 5px 0px #888;
+  margin-bottom: 16px;
 }
 
 .container.select div.song p.title {
@@ -139,6 +159,7 @@ button:hover {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: song;
+  font-family: 'M PLUS Rounded 1c', "Noto Sans Japanese", sans-serif;
 }
 
 .container.select div.song p.composer {
@@ -180,16 +201,17 @@ button:hover {
   content: "%";
 }
 
-.container.select div.song button#playSong {
-  -ms-grid-row: 6;
-  -ms-grid-column: 1;
-  grid-area: play;
-  display: none;
+.container.select div.song.show {
+      grid-template-areas: "song" "comp" "note" "intro" "ratio" "btn";
+  gap: 8px;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -webkit-box-shadow: 0px 0px 20px -5px #888;
+          box-shadow: 0px 0px 20px -5px #888;
 }
 
-.container.select div.song.show {
-      grid-template-areas: "song" "comp" "note" "intro" "ratio" "play";
-  gap: 8px;
+.container.select div.song.show p.note, .container.select div.song.show p.intro {
+  display: block;
 }
 
 .container.select div.song.show p.composer::before {
@@ -202,6 +224,12 @@ button:hover {
 
 .container.select div.song.show p.ratio::before {
   content: "Clear rate: ";
+}
+
+.container.select div.song.show #playbtnContainer {
+  -ms-grid-row: 6;
+  -ms-grid-column: 1;
+  grid-area: btn;
 }
 
 h1, h2, h3, h4, h5, h6, p.page {
