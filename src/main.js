@@ -1,7 +1,6 @@
-import {sleep, waitUntil} from "./function";
 import {bgColor} from "./variables";
 import {Canvas, Block} from "./class";
-const $ = require("jquery");
+import {buttonOnClick, songSelect} from "./dom";
 
 window.addEventListener("load",()=>{
 	const canv = new Canvas();
@@ -14,24 +13,9 @@ window.addEventListener("load",()=>{
 
 	window.canv = canv;
 
-	const anim = async (before, after, isR2L=true)=>{
-		const outW = (isR2L?(-window.outerWidth):(window.outerWidth));
-		$(before).animate({ left: outW }, 200)
-		await sleep(200);
-		$(before).removeClass("showing");
-		await sleep(600);
-		$(after).addClass("showing").css({left: -outW}).animate({left: 0},200);
-	}
-	$("div.btnContainer button#play").click(()=>{
-		anim(".container.start", ".container.select");
-	});
-	$("div.btnContainer button#news").click(()=>{
-		anim(".container.start", ".container.news");
-	});
-	$("div.btnContainer button#links").click(()=>{
-		anim(".container.start", ".container.links");
-	});
-	$("div.container header button.back").click(function(){
-		anim(`.container.${$(this).attr("data-from")}`, `.container.${$(this).attr("data-to")}`,false);
-	})
+	buttonOnClick();
+	songSelect();
+	// $(window).click(()=>{
+	// 	document.querySelector("html").requestFullscreen();
+	// })
 });
