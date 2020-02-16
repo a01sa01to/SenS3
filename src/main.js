@@ -1,6 +1,7 @@
 import {bgColor} from "./variables";
 import {Canvas, Block} from "./class";
 import {buttonOnClick, songSelect} from "./dom";
+// import {dataStore} from "./gsa";
 
 window.addEventListener("load",()=>{
 	const canv = new Canvas();
@@ -18,4 +19,5 @@ window.addEventListener("load",()=>{
 	// $(window).click(()=>{
 	// 	document.querySelector("html").requestFullscreen();
 	// })
+	// window.test = dataStore;
 });

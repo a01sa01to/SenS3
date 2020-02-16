@@ -43,7 +43,7 @@ const songSelectAnime = async e=>{
 		await sleep(200*rate);
 		e.children(".composer").fadeIn(200*rate);
 		e.children(".ratio").fadeIn(200*rate);
-		e.animate({height: Number(e.attr("data-openH"))+Number(e.attr("data-btnH"))}, 500*rate);
+		e.animate({height: Number(e.attr("data-openH"))+Number(e.attr("data-btnH"))+8}, 500*rate);
 		e.children(".note").slideDown(300*rate);
 		e.children(".intro").slideDown(300*rate);
 		e.children("button").slideDown(300*rate);
