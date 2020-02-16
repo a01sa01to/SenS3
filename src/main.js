@@ -1,5 +1,5 @@
 import {bgColor} from "./variables";
-import {Canvas, Block} from "./class";
+import {Canvas, Block, Music} from "./class";
 import {buttonOnClick, songSelect} from "./dom";
 import {dataGet, dataStore, getAvg, getRate} from "./gas";
 
@@ -12,12 +12,6 @@ window.addEventListener("load",()=>{
 		.rect(0,canv.p2x(85,"y"),canv.size().width,canv.p2x(15,"y"))  // 下の部分
 		.split("x",5,canv.p2x(85,"y"),canv.p2x(15,"y"));  // 下部分を3分割
 
-	window.canv = canv;
-
 	buttonOnClick();
 	songSelect();
-	// $(window).click(()=>{
-	// 	document.querySelector("html").requestFullscreen();
-	// })
-	window.test = {get: dataGet, store: dataStore, avg: getAvg, rate: getRate};
 });

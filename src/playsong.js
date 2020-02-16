@@ -7,8 +7,8 @@ const play = async m=>{
 	let scoreData = "";
 	await fetch(`scores/${name2path(m)}.sens3`).then(r=>r.text()).then(t=>{scoreData=t});
 	scoreData = scoreData.split(",");
+	document.querySelector("html").requestFullscreen();
 	await sleep(3000);
-
 	$(".container.game .loader").hide();
 	$(".container.game canvas").show();
 	await sleep(3000);
