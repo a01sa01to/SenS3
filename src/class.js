@@ -202,6 +202,7 @@ class Music{
 			this.music = `/music/${m}.mp3`;
 			this.elem.src = this.music;
 		}
+		this.elem.muted = true;
 		this.elem.volume = 0.5;
 		return this;
 	}
@@ -211,6 +212,7 @@ class Music{
 	 */
 	play(){
 		this.elem.play();
+		this.elem.muted = false;
 		return this;
 	}
 
