@@ -37,4 +37,6 @@ const anim = async (before, after, isR2L=true)=>{
 	$(after).addClass("showing").css({left: -outW}).animate({left: 0},200);
 }
 
-export {sleep, waitUntil, anim};
+const getBytes = e=>encodeURIComponent(e).replace(/%../g,"x").length;
+
+export {sleep, waitUntil, anim, getBytes};
