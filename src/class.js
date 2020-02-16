@@ -1,4 +1,5 @@
 import {π, selector, bgColor} from "./variables";
+import {sleep} from "./function";
 
 class Canvas{
 	constructor(){}
@@ -190,4 +191,92 @@ class Block extends Canvas{
 	}
 }
 
-export {Canvas, Block}
+class Music{
+
+	/**
+	 * @param {String} m 音楽ファイル名
+	 */
+	constructor(m){
+		this.elem = new Audio();
+		if(m){
+			this.music = `/music/${m}.mp3`;
+			this.elem.src = this.music;
+		}
+		this.elem.volume = 0.5;
+		return this;
+	}
+
+	/**
+	 * @description 音楽を再生
+	 */
+	play(){
+		this.elem.play();
+		return this;
+	}
+
+	/**
+	 * @description 音楽を停止
+	 */
+	stop(){
+		this.elem.pause();
+		return this.reset();
+	}
+
+
+	/**
+	 * @description 音楽を最初に戻す
+	 */
+	reset(){
+		this.elem.currentTime = 0;
+		return this;
+	}
+
+	/**
+	 * @description 音量調整
+	 * @param {Number} v 音量(%)
+	 */
+	setVolume(v){
+		this.elem.volume = Number(v)/100;
+		return this;
+	}
+
+	/**
+	 * @description 音量取得
+	 * @returns {Number}
+	 */
+	getVolume(){ return (this.elem.volume)*100; }
+
+	/**
+	 * @description フェードイン
+	 * @param {Number} [t=500] ミリ秒数
+	 * @param {Number} [v=50] ボリューム
+	 */
+	async fadeIn(t = 500, v=50){
+		const th = this;
+		this.play();
+		this.setVolume(0);
+		let _ = setInterval(function(){
+			th.setVolume((th.getVolume())+1);
+		},t/v);
+		await sleep(t);
+		clearInterval(_);
+	}
+
+	/**
+	 * @description フェードアウト
+	 * @param {Number} [t=500] ミリ秒数
+	 */
+	async fadeOut(t = 500){
+		const th = this;
+		const v = this.getVolume();
+		let _ = setInterval(function(){
+			const vol = (th.getVolume())-1;
+			th.setVolume(vol<0?vol+1:vol);
+		},t/v);
+		await sleep(t);
+		clearInterval(_);
+		this.stop();
+	}
+}
+
+export {Canvas, Block, Music}
