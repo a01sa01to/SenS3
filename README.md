@@ -5,7 +5,7 @@
 ## What's this?
 
 A Rhythm Game.<br>
-SenS1 and [SenS2](https://github.com/omasakun/SenS2) was developed by [Omasakun](https://github.com/omasakun).
+[SenS1](https://github.com/omasakun/SenS) and [SenS2](https://github.com/omasakun/SenS2) was developed by [Omasakun](https://github.com/omasakun).
 
 [Play now!](https://sens3.a01sa01to.com/)
 
