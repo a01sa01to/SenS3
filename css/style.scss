@@ -79,7 +79,9 @@ button{
 				align-items: center;
 				justify-content: space-around;
 				button{
-					font-size: 2rem;
+					font-size: 1.8rem;
+					width: 40%;
+					margin: 8px auto;
 				}
 			}
 		}
@@ -101,8 +103,8 @@ button{
 
 		div.song{
 			display: grid;
-			grid-template-areas: "song . . . ." "song . . . ratio" "song . comp . ratio" "song. . . ratio" "song . . . .";
-			grid-template-columns: auto 12px auto 1fr auto;
+			grid-template-areas: "song song song song" " . . . ratio" ". comp . ratio" " . . . ratio";
+			grid-template-columns: 1fr auto 12px auto;
 			gap: 0px;
 			position: relative;
 			padding: 0px 16px;
@@ -112,6 +114,11 @@ button{
 				font-size: 2.5rem;
 				grid-area: song;
 				font-family: 'M PLUS Rounded 1c', "Noto Sans Japanese", sans-serif;
+				max-width: 35vw;
+				word-break: keep-all;
+				// overflow-y: unset;
+				// overflow-x: auto;
+				max-height: 3.75rem;
 			}
 			p.composer{
 				grid-area: comp;
@@ -130,6 +137,10 @@ button{
 				display: none;
 				grid-area: intro;
 			}
+			p.avg{
+				grid-area: avg;
+				display: none;
+			}
 			p.ratio{
 				grid-area: ratio;
 				font-size: 1.5rem;
@@ -138,14 +149,22 @@ button{
 				}
 			}
 			&.show{
-				grid-template-areas: "song" "comp" "note" "intro" "ratio" "btn";
+				grid-template-areas: "song" "comp" "note" "intro" "avg" "ratio" "btn";
 				gap: 8px;
 				grid-template-columns: 100%;
 				box-shadow: 0px 0px 20px -5px #888;
-				p.note, p.intro{ display: block; }
+				p.note, p.intro, p.avg{ display: block; }
+				p.title{
+					max-width: 85vw;
+				}
 				p.composer{
 					&::before{
 						content: "Composed by ";
+					}
+				}
+				p.avg{
+					&::before{
+						content: "Average Score: ";
 					}
 				}
 				p.ratio{
@@ -159,6 +178,9 @@ button{
 				}
 			}
 		}
+	}
+	&.game{
+		padding: 50px 0 0 0;
 	}
 }
 
