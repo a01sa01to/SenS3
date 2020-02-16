@@ -1,5 +1,6 @@
 import {π, selector, bgColor} from "./variables";
 import {sleep} from "./function";
+const {Howl, Howler} = require('howler');
 
 class Canvas{
 	constructor(){}
@@ -197,11 +198,13 @@ class Music{
 	 * @param {String} m 音楽ファイル名
 	 */
 	constructor(m){
-		this.elem = new Audio();
 		if(m){
 			this.music = `/music/${m}.mp3`;
-			this.elem.src = this.music;
 		}
+		this.elem = new Howl({
+			src: this.music,
+			volume: 0.5
+		});
 		this.elem.muted = true;
 		this.elem.volume = 0.5;
 		return this;
@@ -211,8 +214,7 @@ class Music{
 	 * @description 音楽を再生
 	 */
 	play(){
-		this.elem.play();
-		this.elem.muted = false;
+		this.id = this.elem.play();
 		return this;
 	}
 
@@ -220,16 +222,7 @@ class Music{
 	 * @description 音楽を停止
 	 */
 	stop(){
-		this.elem.pause();
-		return this.reset();
-	}
-
-
-	/**
-	 * @description 音楽を最初に戻す
-	 */
-	reset(){
-		this.elem.currentTime = 0;
+		this.elem.stop(this.id);
 		return this;
 	}
 
@@ -238,7 +231,7 @@ class Music{
 	 * @param {Number} v 音量(%)
 	 */
 	setVolume(v){
-		this.elem.volume = Number(v)/100;
+		Howler.volume(Number(v)/100);
 		return this;
 	}
 
@@ -246,7 +239,7 @@ class Music{
 	 * @description 音量取得
 	 * @returns {Number}
 	 */
-	getVolume(){ return (this.elem.volume)*100; }
+	getVolume(){ return (Howler.volume())*100; }
 
 	/**
 	 * @description フェードイン
