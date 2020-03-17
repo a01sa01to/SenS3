@@ -24,4 +24,4 @@ jobs:
             - ./node_modules
       - run:
           name: Build
-          command: npm build
+          command: npm run build
