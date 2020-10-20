@@ -15,6 +15,6 @@
   "author": "Asa",
   "license": "MIT",
   "devDependencies": {
-    "webpack-cli": "^4.0.0"
+    "webpack-cli": "^4.1.0"
   }
 }
