@@ -6,7 +6,7 @@
   "dependencies": {
     "howler": "^2.2.1",
     "jquery": "^3.5.1",
-    "webpack": "^5.3.2"
+    "webpack": "^5.4.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,6 +15,6 @@
   "author": "Asa",
   "license": "MIT",
   "devDependencies": {
-    "webpack-cli": "^4.1.0"
+    "webpack-cli": "^4.2.0"
   }
 }
